@@ -29,3 +29,7 @@ Available commands:
 ```
 
 Now run, for example, `, fmt` to run the corresponding script.
+
+The scripts will be run *always* from the project root directory[^flake-root] regardless of the current working directory.
+
+[^flake-root]: "Project root directory" is determined by traversing the directory up until we find the unique file that exists only at the root. This unique file is `flake.nix` by default, which can be overridden using the [flake-root](https://github.com/srid/flake-root) module. 
