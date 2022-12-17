@@ -17,8 +17,8 @@
             command = "echo Hello";
           };
           fmt = {
-            description = "Format the Nix files";
-            command = "${lib.getExe pkgs.nixpkgs-fmt} ./*.nix ../nix/*.nix";
+            description = "Format the top-level Nix files";
+            command = "${lib.getExe pkgs.nixpkgs-fmt} ./*.nix";
             category = "Tools";
           };
           ponysay = {
