@@ -1,0 +1,26 @@
+{
+  "nodes": {
+    "flake-root": {
+      "locked": {
+        "lastModified": 1671295174,
+        "narHash": "sha256-5K+wdsB5TYSmI6HeexOMvJTZTBdXb9RbiFwXRtQkE3M=",
+        "owner": "srid",
+        "repo": "flake-root",
+        "rev": "bb96b89f65d7c47457303f2385798a09f4a1dd5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "flake-root",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-root": "flake-root"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
