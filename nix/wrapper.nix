@@ -1,4 +1,4 @@
-{ pkgs, lib, mission-control, ... }:
+{ pkgs, lib, mission-control, flake-root, ... }:
 
 let
   mkCommand = name: v:
@@ -15,7 +15,6 @@ let
     pkgs.writeShellApplication {
       name = mission-control.wrapperName;
       runtimeInputs = commands;
-      # TODO: find_up!
       text = ''
         showHelp () {
           echo -e "Available commands:\n"
@@ -37,6 +36,8 @@ let
           showHelp
           exit 1
         else 
+          set -x
+          cd "${lib.getExe flake-root}"
           exec "$@"
         fi
       '';

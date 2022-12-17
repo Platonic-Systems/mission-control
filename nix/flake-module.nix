@@ -1,4 +1,4 @@
-{ self, lib, flake-parts-lib, ... }:
+{ self, lib, inputs, flake-parts-lib, ... }:
 let
   inherit (flake-parts-lib)
     mkPerSystemOption;
@@ -7,6 +7,9 @@ let
     types;
 in
 {
+  imports = [
+    inputs.flake-root.flakeModule
+  ];
   options = {
     perSystem = mkPerSystemOption
       ({ config, self', inputs', pkgs, system, ... }:
@@ -58,7 +61,11 @@ in
                 '';
                 default = shell: shell.overrideAttrs (oa:
                   let
-                    wrapper = import ./wrapper.nix { inherit pkgs lib; inherit (config) mission-control; };
+                    wrapper = import ./wrapper.nix {
+                      inherit pkgs lib;
+                      inherit (config) mission-control;
+                      flake-root = config.flake-root.package;
+                    };
                     banner = import ./banner.nix { inherit wrapper; inherit (config.mission-control) wrapperName; };
                   in
                   {
