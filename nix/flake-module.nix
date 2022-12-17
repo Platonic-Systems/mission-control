@@ -19,23 +19,37 @@ in
             options = {
               description = mkOption {
                 type = types.nullOr types.str;
-                description = "The description of this script";
+                description = lib.mdDoc ''
+                  A description of what this script does.
+
+                  This will be displayed in the banner and help menu.
+                '';
                 default = null;
               };
               category = mkOption {
                 type = types.str;
-                description = "The category of the command";
+                description = lib.mdDoc ''
+                  The category under which this script will be gropuped.
+                '';
                 default = "Commands";
               };
               # The following are enum options
               command = mkOption {
                 type = types.nullOr types.str;
-                description = "The command to run (if 'package' is not defined)";
+                description = lib.mdDoc ''
+                  The command or script to run
+
+                  When setting this option, the 'package' option must not also be set.
+                '';
                 default = null;
               };
               package = mkOption {
                 type = types.nullOr types.package;
-                description = "The package to run";
+                description = lib.mdDoc ''
+                  The Nix package to run as the script.
+
+                  When setting this option, the 'command' option must not also be set.
+                '';
                 default = null;
               };
             };
@@ -45,20 +59,23 @@ in
             options = {
               wrapperName = mkOption {
                 type = types.str;
-                description = lib.mdDoc "The name of the wrapper script";
+                description = lib.mdDoc ''
+                  The name of the wrapper script
+                '';
                 default = ",";
               };
               scripts = mkOption {
                 type = types.attrsOf scriptSubmodule;
                 description = lib.mdDoc ''
-                  Scripts to be added to the shell
+                  List of scripts to be added to the shell
                 '';
               };
               # Functions
               installToDevShell = mkOption {
                 type = types.functionTo types.raw;
                 description = lib.mdDoc ''
-                  Patch a devshell to add scripts
+                  Override the given devshell's shellHook and nativeBuildInputs
+                  to add the banner and the wrapper script.
                 '';
                 default = shell: shell.overrideAttrs (oa:
                   let
