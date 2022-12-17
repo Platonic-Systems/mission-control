@@ -20,14 +20,17 @@
     },
     "mission-control": {
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-MQ3YMNnz4+PAfWk11TLuRPReccRRu+m6k5TwsdLnQZU=",
-        "path": "../.",
-        "type": "path"
+        "lastModified": 1671288032,
+        "narHash": "sha256-iq5u/u0yit6hdB/MV9mNxAfZT1W7kUdtwqVkaLRkzQQ=",
+        "owner": "Platonic-Systems",
+        "repo": "mission-control",
+        "rev": "6a2f4fe316b29b1eb8f47c08af7cd79b03cdceef",
+        "type": "github"
       },
       "original": {
-        "path": "../.",
-        "type": "path"
+        "owner": "Platonic-Systems",
+        "repo": "mission-control",
+        "type": "github"
       }
     },
     "nixpkgs": {
