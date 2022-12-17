@@ -1,4 +1,5 @@
-{ self, lib, inputs, flake-parts-lib, ... }:
+{ flake-root }:
+{ self, lib, flake-parts-lib, ... }:
 let
   inherit (flake-parts-lib)
     mkPerSystemOption;
@@ -8,7 +9,7 @@ let
 in
 {
   imports = [
-    inputs.flake-root.flakeModule
+    flake-root.flakeModule
   ];
   options = {
     perSystem = mkPerSystemOption

@@ -3,7 +3,7 @@
   inputs = {
     flake-root.url = "github:srid/flake-root/init";
   };
-  outputs = { self, ... }: {
-    flakeModule = ./nix/flake-module.nix;
+  outputs = { self, flake-root, ... }: {
+    flakeModule = import ./nix/flake-module.nix { inherit flake-root; };
   };
 }
