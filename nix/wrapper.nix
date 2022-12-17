@@ -2,7 +2,16 @@
 
 let
   mkCommand = name: v:
-    (if v.package == null then pkgs.writeShellApplication { inherit name; text = v.command; } else v.package).overrideAttrs (oa: {
+    let
+      drv =
+        if v.package == null
+        then pkgs.writeShellApplication { inherit name; text = v.command; }
+        else
+          if v.command == null
+          then v.package
+          else builtins.throw "misson-control.scripts.${name}: Both 'package' and 'command' options are set. You must set exactly one of them.";
+    in
+    drv.overrideAttrs (oa: {
       meta.description =
         if v.description == null then oa.meta.description or "No description" else v.description;
       meta.category = v.category;
