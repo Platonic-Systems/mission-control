@@ -5,11 +5,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1670441596,
-        "narHash": "sha256-+T487QnluBT5F9tVk0chG/zzv+9zzTrx3o7rlOBK7ps=",
+        "lastModified": 1671301114,
+        "narHash": "sha256-NrzO4C+jcjZ+MXjjzQLeLs2k8tVWmz1Xm3MHlaqIubc=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "8d0e2444ab05f79df93b70e5e497f8c708eb6b9b",
+        "rev": "21640cde4cd721d5233f76ad68b44e9bfbf4b0ca",
         "type": "github"
       },
       "original": {
@@ -35,14 +35,15 @@
     },
     "mission-control": {
       "inputs": {
-        "flake-root": "flake-root"
+        "flake-root": "flake-root",
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1671298471,
-        "narHash": "sha256-ev6oDOmqb2H9axxrkcnS8ojYbcnqpMoMqDiMxNoRNdM=",
+        "lastModified": 1671301273,
+        "narHash": "sha256-+Nf+1E9zDucegqkauml04jQABXBpc89WN97jdBd+ogI=",
         "owner": "Platonic-Systems",
         "repo": "mission-control",
-        "rev": "1780d0e6b2b9b1c59d029e97781ed2afea841d6f",
+        "rev": "3a8452c22d74ee913d05050eeab128d08cb8c6c5",
         "type": "github"
       },
       "original": {
@@ -85,11 +86,27 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1671249438,
+        "narHash": "sha256-5e+CcnbZA3/i2BRXbnzRS52Ly67MUNdZR+Zpbb2C65k=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "067bfc6c90a301572cec7da48f09c447a9a8eae0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "mission-control": "mission-control",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

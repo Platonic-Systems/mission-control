@@ -5,7 +5,7 @@
     mission-control.url = "github:Platonic-Systems/mission-control";
   };
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit self; } {
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
       imports = [
         inputs.mission-control.flakeModule
