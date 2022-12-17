@@ -6,7 +6,11 @@ A `flake-parts` module for your Nix devshell scripts
 
 ## Example
 
-See the [example](./example) directory for a working example. Run `nix develop` (or `direnv allow`) to drop into the Nix shell, which will display the mission control banner as shown below:
+See the [example](./example) directory for a working example.
+
+Run `nix develop --override-input mission-control path:../.`[^override] (or simply `direnv allow` if you already use direnv) to drop into the Nix shell, which will display the mission control banner as shown below:
+
+[^override]: The `--override-input` option is to be used when running from this repository to make sure that we are using the local version of `mission-control`. If you are copying this `flake.nix` to your project (without also copying the outdated `flake.lock`), you can simply run `nix develop`.
 
 ```
 ### ️🔨 Welcome to the Nix devshell ###
