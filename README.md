@@ -2,7 +2,7 @@
 
 A `flake-parts` module for your Nix devshell scripts
 
-## Example
+## Usage
 
 See the [example](./example) directory for a working example.
 
@@ -31,3 +31,9 @@ Now run, for example, `, fmt` to run the corresponding script.
 The scripts will be run *always* from the project root directory[^flake-root] regardless of the current working directory.
 
 [^flake-root]: "Project root directory" is determined by traversing the directory up until we find the unique file that exists only at the root. This unique file is `flake.nix` by default, which can be overridden using the [flake-root](https://github.com/srid/flake-root) module; i.e.; `flake-root.projectRootFile = "stack.yaml";`
+
+## Examples
+
+These repositories use `mission-control` to provide development shell workflow scripts:
+
+- https://github.com/srid/haskell-template
