@@ -8,6 +8,7 @@ let
     types;
 in
 {
+  _file = __curPos.file;
   imports = [
     flake-root.flakeModule
   ];
