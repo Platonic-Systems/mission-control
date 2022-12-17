@@ -24,7 +24,7 @@
         };
         devShells.default =
           let shell = pkgs.mkShell { };
-          in config.script.installToDevShell shell;
+          in config.mission-control.installToDevShell shell;
       };
     };
 }
