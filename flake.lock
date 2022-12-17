@@ -2,16 +2,15 @@
   "nodes": {
     "flake-root": {
       "locked": {
-        "lastModified": 1671294861,
-        "narHash": "sha256-vYyAp276tw0fdm5f/T7AwpRB38gawQgs7Id7a35uiwo=",
+        "lastModified": 1671295174,
+        "narHash": "sha256-5K+wdsB5TYSmI6HeexOMvJTZTBdXb9RbiFwXRtQkE3M=",
         "owner": "srid",
         "repo": "flake-root",
-        "rev": "fc9ba33e216341b607a850f4c7e2e2d6c1baa4ad",
+        "rev": "bb96b89f65d7c47457303f2385798a09f4a1dd5a",
         "type": "github"
       },
       "original": {
         "owner": "srid",
-        "ref": "init",
         "repo": "flake-root",
         "type": "github"
       }
