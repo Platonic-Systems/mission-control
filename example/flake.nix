@@ -21,6 +21,9 @@
             command = "${lib.getExe pkgs.nixpkgs-fmt} ./*.nix ../nix/*.nix";
             category = "Tools";
           };
+          ponysay = {
+            package = pkgs.ponysay;
+          };
         };
         devShells.default =
           let shell = pkgs.mkShell { };
