@@ -4,14 +4,18 @@ A `flake-parts` module for your Nix devshell scripts
 
 ## Usage
 
-To try out mission-control, start from one of the following ways:
+To try out mission-control using the example template, start from one of the following ways:
 
 - Run `nix flake init -t github:Platonic-Systems/mission-control` to create a template `flake.nix` file. Run `nix develop` on it.
-- Clone this repo and checkout the [example](./example). On this directory, run `nix develop --override-input mission-control path:../.`[^override] (or simply `direnv allow` if you already use direnv) to drop into the Nix shell
+- Or, clone this repo and checkout the [example](./example). On this directory, run `nix develop --override-input mission-control path:../.`[^override] (or simply `direnv allow` if you already use direnv) to drop into the Nix shell
 
 [^override]: The `--override-input` option is to be used when running from this repository to make sure that we are using the local version of `mission-control`. If you are copying this `flake.nix` to your project (without also copying the outdated `flake.lock`), you can simply run `nix develop`.
 
-Once you are in the Nix develop shell, you'll see a banner like below:
+The example configures the scripts in Nix as follows:
+
+https://github.com/Platonic-Systems/mission-control/blob/7beb3a8d1acf63e9e1cfb0fb07104d3b57eeb2b4/example/flake.nix#L14-L27
+
+Which produces a banner in the devshell like below:
 
 ```
 ### ️🔨 Welcome to the Nix devshell ###
@@ -30,7 +34,7 @@ Available commands:
 (Run ',' to display this menu again)
 ```
 
-Now run, for example, `, fmt` to run the corresponding script.
+Once you are in the dev shell, you can run any of these scripts prefixed with the wrapper name `,`.  For example, `, fmt` to format the Nix files.
 
 The scripts will be run *always* from the project root directory[^flake-root] regardless of the current working directory.
 
