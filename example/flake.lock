@@ -1,0 +1,80 @@
+{
+  "nodes": {
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1670441596,
+        "narHash": "sha256-+T487QnluBT5F9tVk0chG/zzv+9zzTrx3o7rlOBK7ps=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "8d0e2444ab05f79df93b70e5e497f8c708eb6b9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "mission-control": {
+      "locked": {
+        "lastModified": 1671288032,
+        "narHash": "sha256-iq5u/u0yit6hdB/MV9mNxAfZT1W7kUdtwqVkaLRkzQQ=",
+        "owner": "Platonic-Systems",
+        "repo": "mission-control",
+        "rev": "6a2f4fe316b29b1eb8f47c08af7cd79b03cdceef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Platonic-Systems",
+        "repo": "mission-control",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1671249438,
+        "narHash": "sha256-5e+CcnbZA3/i2BRXbnzRS52Ly67MUNdZR+Zpbb2C65k=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "067bfc6c90a301572cec7da48f09c447a9a8eae0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "dir": "lib",
+        "lastModified": 1665349835,
+        "narHash": "sha256-UK4urM3iN80UXQ7EaOappDzcisYIuEURFRoGQ/yPkug=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "34c5293a71ffdb2fe054eb5288adc1882c1eb0b1",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "mission-control": "mission-control",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
