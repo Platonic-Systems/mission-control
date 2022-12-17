@@ -6,7 +6,7 @@ on:
       - '*'
   pull_request:
 jobs:
-  example:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,11 +15,19 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - name: Run via Mission Control
-        id: build
+      - name: Test example
+        id: example
         run: |
           cd ./example
           nix develop --override-input mission-control path:../. -c , fmt
+      - name: Test template
+        id: template
+        run: |
+          FLAKE=$(pwd)
+          TEMP_DIR=$(mktemp -d)
+          cd $TEMP_DIR
+          nix flake init -t $FLAKE
+          nix develop -c , fmt
       - name: Flake checks 🧪
         run: |
           # Because 'nix flake check' is not system-aware
