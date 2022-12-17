@@ -17,7 +17,8 @@ Available commands:
 
 ## Commands
 
-  , hello  : Say Hello
+  , hello    : Say Hello
+  , ponysay  : Cowsay reimplemention for ponies
 
 ## Tools
 
