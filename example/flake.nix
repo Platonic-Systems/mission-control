@@ -19,6 +19,7 @@
           fmt = {
             description = "Format the Nix files";
             command = "${lib.getExe pkgs.nixpkgs-fmt} ./*.nix ../nix/*.nix";
+            category = "Tools";
           };
         };
         devShells.default =
