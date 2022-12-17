@@ -71,7 +71,7 @@ in
 
         in
         {
-          options.script = lib.mkOption {
+          options.mission-control = lib.mkOption {
             type = mainSubmodule;
             description = lib.mdDoc ''
               Specification for the scripts in dev shell

@@ -11,7 +11,7 @@
         inputs.mission-control.flakeModule
       ];
       perSystem = { pkgs, lib, config, ... }: {
-        script.scripts = {
+        mission-control.scripts = {
           hello = {
             description = "Say Hello";
             command = "echo Hello";
