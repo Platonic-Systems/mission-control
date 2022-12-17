@@ -37,7 +37,6 @@ let
           exit 1
         else 
           FLAKE_ROOT="''$(${lib.getExe flake-root})"
-          set -x
           cd "$FLAKE_ROOT"
           exec "$@"
         fi
