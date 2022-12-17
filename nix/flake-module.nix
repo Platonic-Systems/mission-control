@@ -58,8 +58,8 @@ in
                 '';
                 default = shell: shell.overrideAttrs (oa:
                   let
-                    wrapper = import ./wrapper.nix { inherit pkgs lib; inherit (config) script; };
-                    banner = import ./banner.nix { inherit wrapper; inherit (config.script) wrapperName; };
+                    wrapper = import ./wrapper.nix { inherit pkgs lib; inherit (config) mission-control; };
+                    banner = import ./banner.nix { inherit wrapper; inherit (config.mission-control) wrapperName; };
                   in
                   {
                     nativeBuildInputs = (oa.nativeBuildInputs or [ ]) ++ [ wrapper ];
@@ -71,7 +71,7 @@ in
 
         in
         {
-          options.script = lib.mkOption {
+          options.mission-control = lib.mkOption {
             type = mainSubmodule;
             description = lib.mdDoc ''
               Specification for the scripts in dev shell

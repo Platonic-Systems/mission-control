@@ -11,7 +11,7 @@
         inputs.mission-control.flakeModule
       ];
       perSystem = { pkgs, lib, config, ... }: {
-        script.scripts = {
+        mission-control.scripts = {
           hello = {
             description = "Say Hello";
             command = "echo Hello";
@@ -24,7 +24,7 @@
         };
         devShells.default =
           let shell = pkgs.mkShell { };
-          in config.script.installToDevShell shell;
+          in config.mission-control.installToDevShell shell;
       };
     };
 }

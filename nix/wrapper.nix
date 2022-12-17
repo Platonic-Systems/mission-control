@@ -1,4 +1,4 @@
-{ pkgs, lib, script, ... }:
+{ pkgs, lib, mission-control, ... }:
 
 let
   mkCommand = name: v:
@@ -13,7 +13,7 @@ let
       commandsGrouped = lib.groupBy (a: a.meta.category) commands;
     in
     pkgs.writeShellApplication {
-      name = script.wrapperName;
+      name = mission-control.wrapperName;
       runtimeInputs = commands;
       # TODO: find_up!
       text = ''
@@ -27,7 +27,7 @@ let
                     (map (drv: 
                       let name = builtins.baseNameOf (lib.getExe drv);
                           desc = drv.meta.description;
-                      in "  ${script.wrapperName} " + name + "\t: " + desc
+                      in "  ${mission-control.wrapperName} " + name + "\t: " + desc
                     ) commands 
                     ) + "' | ${lib.getExe pkgs.unixtools.column} -t -s ''$'\t'; "
               ) commandsGrouped)
@@ -42,7 +42,7 @@ let
       '';
     };
   wrapper =
-    (wrapCommands script.scripts).overrideAttrs (oa: {
+    (wrapCommands mission-control.scripts).overrideAttrs (oa: {
       meta.description = "Development scripts command";
       nativeBuildInputs = (oa.nativeBuildInputs or [ ]) ++ [ pkgs.installShellFiles ];
       # TODO: bash and zsh completion
