@@ -38,16 +38,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1671388109,
-        "narHash": "sha256-XktBIVXG+NSw+QFyHNvIWv3WmkoGGYN8j5S3PkcINpc=",
+        "lastModified": 1671388544,
+        "narHash": "sha256-dnl7Qr61eBEPl7EP1GLgHaxgdLaOUFlXvnGe2fEzjcw=",
         "owner": "Platonic-Systems",
         "repo": "mission-control",
-        "rev": "9f725a4ffbf167fcc5240c2d8a72c3cda34320bc",
+        "rev": "7faa2f2241875f858a831e7ff312b578f7d42cdb",
         "type": "github"
       },
       "original": {
         "owner": "Platonic-Systems",
-        "ref": "explicit-flake-root",
         "repo": "mission-control",
         "type": "github"
       }
