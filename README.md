@@ -38,7 +38,7 @@ Once you are in the dev shell, you can run any of these scripts prefixed with th
 
 The scripts will be run *always* from the project root directory[^flake-root] regardless of the current working directory.
 
-[^flake-root]: "Project root directory" is determined by traversing the directory up until we find the unique file that exists only at the root. This unique file is `flake.nix` by default, which can be overridden using the [flake-root](https://github.com/srid/flake-root) module; i.e.; `flake-root.projectRootFile = "stack.yaml";`
+[^flake-root]: "Project root directory" is determined by traversing the directory up until we find the unique file that exists only at the root. This unique file is `flake.nix` by default, which can be overridden using the [flake-root](https://github.com/srid/flake-root) module that this module mandatorily requires; i.e.; `flake-root.projectRootFile = "stack.yaml";`
 
 ## Examples
 

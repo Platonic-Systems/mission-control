@@ -1,4 +1,3 @@
-{ flake-root }:
 { self, lib, flake-parts-lib, ... }:
 let
   inherit (flake-parts-lib)
@@ -8,10 +7,6 @@ let
     types;
 in
 {
-  _file = __curPos.file;
-  imports = [
-    flake-root.flakeModule
-  ];
   options = {
     perSystem = mkPerSystemOption
       ({ config, self', inputs', pkgs, system, ... }:

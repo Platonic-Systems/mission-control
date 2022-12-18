@@ -20,11 +20,11 @@
     },
     "flake-root": {
       "locked": {
-        "lastModified": 1671295174,
-        "narHash": "sha256-5K+wdsB5TYSmI6HeexOMvJTZTBdXb9RbiFwXRtQkE3M=",
+        "lastModified": 1671378805,
+        "narHash": "sha256-yqGxyzMN2GuppwG3dTWD1oiKxi+jGYP7D1qUSc5vKhI=",
         "owner": "srid",
         "repo": "flake-root",
-        "rev": "bb96b89f65d7c47457303f2385798a09f4a1dd5a",
+        "rev": "dc7ba6166e478804a9da6881aa48c45d300075cf",
         "type": "github"
       },
       "original": {
@@ -35,19 +35,19 @@
     },
     "mission-control": {
       "inputs": {
-        "flake-root": "flake-root",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1671301273,
-        "narHash": "sha256-+Nf+1E9zDucegqkauml04jQABXBpc89WN97jdBd+ogI=",
+        "lastModified": 1671388109,
+        "narHash": "sha256-XktBIVXG+NSw+QFyHNvIWv3WmkoGGYN8j5S3PkcINpc=",
         "owner": "Platonic-Systems",
         "repo": "mission-control",
-        "rev": "3a8452c22d74ee913d05050eeab128d08cb8c6c5",
+        "rev": "9f725a4ffbf167fcc5240c2d8a72c3cda34320bc",
         "type": "github"
       },
       "original": {
         "owner": "Platonic-Systems",
+        "ref": "explicit-flake-root",
         "repo": "mission-control",
         "type": "github"
       }
@@ -105,6 +105,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "flake-root": "flake-root",
         "mission-control": "mission-control",
         "nixpkgs": "nixpkgs_2"
       }

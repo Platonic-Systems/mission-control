@@ -2,12 +2,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    mission-control.url = "github:Platonic-Systems/mission-control";
+    flake-root.url = "github:srid/flake-root";
+    mission-control.url = "github:Platonic-Systems/mission-control/explicit-flake-root";
   };
   outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
       imports = [
+        inputs.flake-root.flakeModule
         inputs.mission-control.flakeModule
       ];
       perSystem = { pkgs, lib, config, ... }: {
