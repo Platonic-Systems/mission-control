@@ -9,7 +9,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = nixpkgs.lib.systems.flakeExposed;
       imports = [
-        inputs.mission-control.flake-root
+        inputs.flake-root.flakeModule
         inputs.mission-control.flakeModule
       ];
       perSystem = { pkgs, lib, config, ... }: {
