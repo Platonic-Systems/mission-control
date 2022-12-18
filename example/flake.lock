@@ -20,6 +20,21 @@
     },
     "flake-root": {
       "locked": {
+        "lastModified": 1671378805,
+        "narHash": "sha256-yqGxyzMN2GuppwG3dTWD1oiKxi+jGYP7D1qUSc5vKhI=",
+        "owner": "srid",
+        "repo": "flake-root",
+        "rev": "dc7ba6166e478804a9da6881aa48c45d300075cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "flake-root",
+        "type": "github"
+      }
+    },
+    "flake-root_2": {
+      "locked": {
         "lastModified": 1671295174,
         "narHash": "sha256-5K+wdsB5TYSmI6HeexOMvJTZTBdXb9RbiFwXRtQkE3M=",
         "owner": "srid",
@@ -35,7 +50,7 @@
     },
     "mission-control": {
       "inputs": {
-        "flake-root": "flake-root",
+        "flake-root": "flake-root_2",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
@@ -105,6 +120,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "flake-root": "flake-root",
         "mission-control": "mission-control",
         "nixpkgs": "nixpkgs_2"
       }
