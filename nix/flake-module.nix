@@ -65,7 +65,7 @@ in
                 };
               };
               banner = mkOption {
-                type = types.string;
+                type = types.str;
                 description = lib.mdDoc ''
                   The generated shell banner.
                 '';
