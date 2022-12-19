@@ -52,6 +52,7 @@ in
                 description = lib.mdDoc ''
                   List of scripts to be added to the shell
                 '';
+                default = { };
               };
               wrapper = mkOption {
                 type = types.package;
@@ -97,6 +98,7 @@ in
             description = lib.mdDoc ''
               Specification for the scripts in dev shell
             '';
+            default = { };
           };
         });
   };
