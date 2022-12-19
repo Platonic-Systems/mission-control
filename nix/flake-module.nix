@@ -49,6 +49,7 @@ in
                 description = lib.mdDoc ''
                   Scripts to be added to the shell
                 '';
+                default = { };
               };
               # Functions
               installToDevShell = mkOption {
@@ -76,6 +77,7 @@ in
             description = lib.mdDoc ''
               Specification for the scripts in dev shell
             '';
+            default = { };
           };
         });
   };
