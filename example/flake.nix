@@ -16,15 +16,15 @@
         mission-control.scripts = {
           hello = {
             description = "Say Hello";
-            command = "echo Hello";
+            exec = "echo Hello";
           };
           fmt = {
             description = "Format the top-level Nix files";
-            command = "${lib.getExe pkgs.nixpkgs-fmt} ./*.nix";
+            exec = "${lib.getExe pkgs.nixpkgs-fmt} ./*.nix";
             category = "Tools";
           };
           ponysay = {
-            package = pkgs.ponysay;
+            exec = pkgs.ponysay;
           };
         };
         devShells.default =

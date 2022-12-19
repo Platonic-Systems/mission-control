@@ -29,24 +29,11 @@ in
                 '';
                 default = "Commands";
               };
-              # The following are enum options
-              command = mkOption {
-                type = types.nullOr types.str;
+              exec = mkOption {
+                type = types.oneOf [ types.str types.package ];
                 description = lib.mdDoc ''
-                  The command or script to run
-
-                  When setting this option, the 'package' option must not also be set.
+                  The script or package to run
                 '';
-                default = null;
-              };
-              package = mkOption {
-                type = types.nullOr types.package;
-                description = lib.mdDoc ''
-                  The Nix package to run as the script.
-
-                  When setting this option, the 'command' option must not also be set.
-                '';
-                default = null;
               };
             };
           };

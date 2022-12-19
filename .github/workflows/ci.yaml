@@ -27,7 +27,7 @@ jobs:
           TEMP_DIR=$(mktemp -d)
           cd $TEMP_DIR
           nix flake init -t $FLAKE
-          nix develop -c , fmt
+          nix develop --override-input mission-control path:${FLAKE} -c , fmt
       - name: Flake checks 🧪
         run: |
           # Because 'nix flake check' is not system-aware
