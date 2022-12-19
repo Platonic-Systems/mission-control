@@ -4,12 +4,9 @@ let
   mkCommand = name: v:
     let
       drv =
-        if v.package == null
-        then pkgs.writeShellApplication { inherit name; text = v.command; }
-        else
-          if v.command == null
-          then v.package
-          else builtins.throw "misson-control.scripts.${name}: Both 'package' and 'command' options are set. You must set exactly one of them.";
+        if builtins.typeOf v.exec == "string"
+        then pkgs.writeShellApplication { inherit name; text = v.exec; }
+        else v.exec;
     in
     drv.overrideAttrs (oa: {
       meta.description =
