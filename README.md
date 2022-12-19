@@ -45,3 +45,4 @@ The scripts will be run *always* from the project root directory[^flake-root] re
 These repositories use `mission-control` to provide development shell workflow scripts:
 
 - https://github.com/srid/haskell-template
+- https://github.com/srid/ema-template
