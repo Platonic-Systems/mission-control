@@ -53,6 +53,24 @@ in
                   List of scripts to be added to the shell
                 '';
               };
+              wrapper = mkOption {
+                type = types.package;
+                description = lib.mdDoc ''
+                  The generated wrapper script.
+                '';
+                default = import ./wrapper.nix {
+                  inherit pkgs lib;
+                  inherit (config) mission-control;
+                  flake-root = config.flake-root.package;
+                };
+              };
+              banner = mkOption {
+                type = types.string;
+                description = lib.mdDoc ''
+                  The generated shell banner.
+                '';
+                default = import ./banner.nix { inherit (config.mission-control) wrapper wrapperName; };
+              };
               # Functions
               installToDevShell = mkOption {
                 type = types.functionTo types.raw;
@@ -62,12 +80,7 @@ in
                 '';
                 default = shell: shell.overrideAttrs (oa:
                   let
-                    wrapper = import ./wrapper.nix {
-                      inherit pkgs lib;
-                      inherit (config) mission-control;
-                      flake-root = config.flake-root.package;
-                    };
-                    banner = import ./banner.nix { inherit wrapper; inherit (config.mission-control) wrapperName; };
+                    inherit (config.mission-control) wrapper banner;
                   in
                   {
                     nativeBuildInputs = (oa.nativeBuildInputs or [ ]) ++ [ wrapper ];
