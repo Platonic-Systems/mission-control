@@ -38,11 +38,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1671388544,
-        "narHash": "sha256-dnl7Qr61eBEPl7EP1GLgHaxgdLaOUFlXvnGe2fEzjcw=",
+        "lastModified": 1671465248,
+        "narHash": "sha256-4sxjUYnV0MUD156u4J4ixIo59xTgxo57/aMHmUu1/+A=",
         "owner": "Platonic-Systems",
         "repo": "mission-control",
-        "rev": "7faa2f2241875f858a831e7ff312b578f7d42cdb",
+        "rev": "a562943f45d9b8ae63dd62ec084202fdbdbeb83f",
         "type": "github"
       },
       "original": {

@@ -13,7 +13,7 @@ To try out mission-control using the example template, start from one of the fol
 
 The example configures the scripts in Nix as follows:
 
-https://github.com/Platonic-Systems/mission-control/blob/7beb3a8d1acf63e9e1cfb0fb07104d3b57eeb2b4/example/flake.nix#L14-L27
+https://github.com/Platonic-Systems/mission-control/blob/a562943f45d9b8ae63dd62ec084202fdbdbeb83f/example/flake.nix#L16-L29
 
 Which produces a banner in the devshell like below:
 
