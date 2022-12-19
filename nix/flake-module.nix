@@ -64,6 +64,7 @@ in
                   inherit (config) mission-control;
                   flake-root = config.flake-root.package;
                 };
+                defaultText = lib.literalMD "generated package";
               };
               banner = mkOption {
                 type = types.str;
@@ -71,6 +72,7 @@ in
                   The generated shell banner.
                 '';
                 default = import ./banner.nix { inherit (config.mission-control) wrapper wrapperName; };
+                defaultText = lib.literalMD "generated package";
               };
               # Functions
               installToDevShell = mkOption {
