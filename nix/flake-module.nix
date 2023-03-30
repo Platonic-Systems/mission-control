@@ -33,7 +33,19 @@ in
                 type = types.oneOf [ types.str types.package ];
                 description = lib.mdDoc ''
                   The script or package to run
+
+                  The $FLAKE_ROOT environment variable will be set to the
+                  project root, as determined by the github:srid/flake-root
+                  module.
                 '';
+              };
+              cdToProjectRoot = mkOption {
+                type = types.bool;
+                description = lib.mdDoc ''
+                  Whether to change the working directory to the project root
+                  before running the script.
+                '';
+                default = true;
               };
             };
           };
