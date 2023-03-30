@@ -94,7 +94,7 @@ in
               };
             };
             config = {
-              config.devShell = pkgs.mkShell {
+              devShell = pkgs.mkShell {
                 nativeBuildInputs = [ config.wrapper ];
                 shellHook = config.banner;
               };
