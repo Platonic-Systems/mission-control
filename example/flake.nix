@@ -27,9 +27,9 @@
             exec = pkgs.ponysay;
           };
         };
-        devShells.default =
-          let shell = pkgs.mkShell { };
-          in config.mission-control.installToDevShell shell;
+        devShells.default = pkgs.mkShell {
+          inputsFrom = [ config.mission-control.devShell ];
+        };
       };
     };
 }

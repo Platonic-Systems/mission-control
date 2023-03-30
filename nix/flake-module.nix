@@ -1,4 +1,4 @@
-{ self, lib, flake-parts-lib, ... }:
+{ lib, flake-parts-lib, ... }:
 let
   inherit (flake-parts-lib)
     mkPerSystemOption;
@@ -50,7 +50,7 @@ in
             };
           };
 
-          mainSubmodule = types.submodule {
+          mainSubmodule = types.submodule ({ config, ... }: {
             options = {
               wrapperName = mkOption {
                 type = types.str;
@@ -86,25 +86,21 @@ in
                 default = import ./banner.nix { inherit (config.mission-control) wrapper wrapperName; };
                 defaultText = lib.literalMD "generated package";
               };
-              # Functions
-              installToDevShell = mkOption {
-                type = types.functionTo types.raw;
+              devShell = mkOption {
+                type = types.package;
                 description = lib.mdDoc ''
-                  Override the given devshell's shellHook and nativeBuildInputs
-                  to add the banner and the wrapper script.
+                  A devShell containing the banner and wrapper.
                 '';
-                default = shell: shell.overrideAttrs (oa:
-                  let
-                    inherit (config.mission-control) wrapper banner;
-                  in
-                  {
-                    nativeBuildInputs = (oa.nativeBuildInputs or [ ]) ++ [ wrapper ];
-                    shellHook = (oa.shellHook or "") + banner;
-                  });
+                readOnly = true;
               };
             };
-          };
-
+            config = {
+              config.devShell = pkgs.mkShell {
+                nativeBuildInputs = [ config.wrapper ];
+                shellHook = config.banner;
+              };
+            };
+          });
         in
         {
           options.mission-control = lib.mkOption {
