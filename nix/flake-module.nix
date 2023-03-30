@@ -35,6 +35,14 @@ in
                   The script or package to run
                 '';
               };
+              cdToProjectRoot = mkOption {
+                type = types.bool;
+                description = lib.mdDoc ''
+                  Whether to change the working directory to the project root
+                  before running the script.
+                '';
+                default = true;
+              };
             };
           };
 

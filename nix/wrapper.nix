@@ -35,12 +35,32 @@ let
               ) commandsGrouped)
           }
         }
+
+        # What to do before running the script.
+        ${
+          lib.concatStringsSep "\n"
+            (
+              lib.mapAttrsToList (name: v:
+                if v.cdToProjectRoot then ''
+                  __${name}-prerun () {
+                    cd "$FLAKE_ROOT"
+                  }
+                '' else ''
+                  __${name}-prerun () {
+                    true
+                  }
+                ''
+              ) spec
+            )
+        }
+
         if [ "$*" == "" ] || [ "$*" == "-h" ] || [ "$*" == "--help" ]; then
           showHelp
           exit 1
         else 
           FLAKE_ROOT="''$(${lib.getExe flake-root})"
-          cd "$FLAKE_ROOT"
+          export FLAKE_ROOT
+          __"$1"-prerun
           exec "$@"
         fi
       '';
