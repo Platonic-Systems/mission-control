@@ -9,7 +9,7 @@ in
 {
   options = {
     perSystem = mkPerSystemOption
-      ({ config, self', inputs', pkgs, system, ... }:
+      (perSystem@{ config, self', inputs', pkgs, system, ... }:
         let
           scriptSubmodule = types.submodule {
             options = {
@@ -72,9 +72,8 @@ in
                   The generated wrapper script.
                 '';
                 default = import ./wrapper.nix {
-                  inherit pkgs lib;
-                  inherit (config) mission-control;
-                  flake-root = config.flake-root.package;
+                  inherit pkgs lib config;
+                  flake-root = perSystem.config.flake-root.package;
                 };
                 defaultText = lib.literalMD "generated package";
               };
@@ -83,7 +82,7 @@ in
                 description = lib.mdDoc ''
                   The generated shell banner.
                 '';
-                default = import ./banner.nix { inherit (config.mission-control) wrapper wrapperName; };
+                default = import ./banner.nix { inherit (config) wrapper wrapperName; };
                 defaultText = lib.literalMD "generated package";
               };
               devShell = mkOption {

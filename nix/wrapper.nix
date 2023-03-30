@@ -1,4 +1,4 @@
-{ pkgs, lib, mission-control, flake-root, ... }:
+{ pkgs, lib, config, flake-root, ... }:
 
 let
   mkCommand = name: v:
@@ -16,7 +16,7 @@ let
       commandsGrouped = lib.groupBy (a: a.meta.category) commands;
     in
     pkgs.writeShellApplication {
-      name = mission-control.wrapperName;
+      name = config.wrapperName;
       runtimeInputs = commands;
       text = ''
         showHelp () {
@@ -29,7 +29,7 @@ let
                     (map (drv: 
                       let name = builtins.baseNameOf (lib.getExe drv);
                           desc = drv.meta.description;
-                      in "  ${mission-control.wrapperName} " + name + "\t: " + desc
+                      in "  ${config.wrapperName} " + name + "\t: " + desc
                     ) commands 
                     ) + "' | ${lib.getExe pkgs.unixtools.column} -t -s ''$'\t'; "
               ) commandsGrouped)
@@ -66,7 +66,7 @@ let
       '';
     };
   wrapper =
-    (wrapCommands mission-control.scripts).overrideAttrs (oa: {
+    (wrapCommands config.scripts).overrideAttrs (oa: {
       meta.description = "Development scripts command";
       nativeBuildInputs = (oa.nativeBuildInputs or [ ]) ++ [ pkgs.installShellFiles ];
       # TODO: bash and zsh completion
