@@ -1,4 +1,4 @@
-{ self, lib, flake-parts-lib, ... }:
+{ lib, flake-parts-lib, ... }:
 let
   inherit (flake-parts-lib)
     mkPerSystemOption;
@@ -9,7 +9,7 @@ in
 {
   options = {
     perSystem = mkPerSystemOption
-      ({ config, self', inputs', pkgs, system, ... }:
+      (perSystem@{ config, self', inputs', pkgs, system, ... }:
         let
           scriptSubmodule = types.submodule {
             options = {
@@ -50,7 +50,7 @@ in
             };
           };
 
-          mainSubmodule = types.submodule {
+          mainSubmodule = types.submodule ({ config, ... }: {
             options = {
               wrapperName = mkOption {
                 type = types.str;
@@ -72,9 +72,8 @@ in
                   The generated wrapper script.
                 '';
                 default = import ./wrapper.nix {
-                  inherit pkgs lib;
-                  inherit (config) mission-control;
-                  flake-root = config.flake-root.package;
+                  inherit pkgs lib config;
+                  flake-root = perSystem.config.flake-root.package;
                 };
                 defaultText = lib.literalMD "generated package";
               };
@@ -83,28 +82,24 @@ in
                 description = lib.mdDoc ''
                   The generated shell banner.
                 '';
-                default = import ./banner.nix { inherit (config.mission-control) wrapper wrapperName; };
+                default = import ./banner.nix { inherit (config) wrapper wrapperName; };
                 defaultText = lib.literalMD "generated package";
               };
-              # Functions
-              installToDevShell = mkOption {
-                type = types.functionTo types.raw;
+              devShell = mkOption {
+                type = types.package;
                 description = lib.mdDoc ''
-                  Override the given devshell's shellHook and nativeBuildInputs
-                  to add the banner and the wrapper script.
+                  A devShell containing the banner and wrapper.
                 '';
-                default = shell: shell.overrideAttrs (oa:
-                  let
-                    inherit (config.mission-control) wrapper banner;
-                  in
-                  {
-                    nativeBuildInputs = (oa.nativeBuildInputs or [ ]) ++ [ wrapper ];
-                    shellHook = (oa.shellHook or "") + banner;
-                  });
+                readOnly = true;
               };
             };
-          };
-
+            config = {
+              devShell = pkgs.mkShell {
+                nativeBuildInputs = [ config.wrapper ];
+                shellHook = config.banner;
+              };
+            };
+          });
         in
         {
           options.mission-control = lib.mkOption {
