@@ -36,7 +36,7 @@ Available commands:
 
 Once you are in the dev shell, you can run any of these scripts prefixed with the wrapper name `,`.  For example, `, fmt` to format the Nix files.
 
-The scripts will be run *always* from the project root directory[^flake-root] regardless of the current working directory.
+Note: The scripts will *always* be run from the project root directory[^flake-root] regardless of the current working directory. You can disable this behaviour by setting the `cdToProjectRoot` option to `false`.
 
 [^flake-root]: "Project root directory" is determined by traversing the directory up until we find the unique file that exists only at the root. This unique file is `flake.nix` by default, which can be overridden using the [flake-root](https://github.com/srid/flake-root) module that this module mandatorily requires; i.e.; `flake-root.projectRootFile = "stack.yaml";`
 
