@@ -2,6 +2,8 @@
 
 A `flake-parts` module for your Nix devshell scripts
 
+https://zero-to-flakes.com/mission-control
+
 ## Usage
 
 To try out mission-control using the example template, start from one of the following ways:
