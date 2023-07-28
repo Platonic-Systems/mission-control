@@ -56,7 +56,7 @@ let
 
         if [ "$*" == "" ] || [ "$*" == "-h" ] || [ "$*" == "--help" ]; then
           showHelp
-          exit 1
+          exit 0
         else 
           FLAKE_ROOT="''$(${lib.getExe flake-root})"
           export FLAKE_ROOT
