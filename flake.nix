@@ -9,7 +9,7 @@
 
     # Config for https://github.com/srid/nixci
     # To run this, `nix run github:srid/nixci`
-    nixci = let overrideInputs = { "mission-control" = ./.; }; in {
+    nixci.default = let overrideInputs = { "mission-control" = ./.; }; in {
       example = {
         inherit overrideInputs;
         dir = "./example";
