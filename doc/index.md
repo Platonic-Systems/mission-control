@@ -82,7 +82,7 @@ To start a cabal repl from your devShell on running  `, repl`, use:
 
 ### treefmt
 
-If you use the [treefmt](/treefmt-nix) module for autoformatting the source tree, you can alias it as `, fmt`:
+If you use the [treefmt](https://nixos.asia/en/treefmt) module for autoformatting the source tree, you can alias it as `, fmt`:
 
 ```nix
 { 
