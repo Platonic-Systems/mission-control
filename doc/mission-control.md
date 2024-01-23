@@ -1,14 +1,16 @@
 ---
-slug: /mission-control
-sidebar_label: Scripts
-sidebar_position: 2
+short-title: mission-control
+template:
+  sidebar:
+    collapsed: true
+emanote:
+  folder-folgezettel: false
 ---
 
 # Devshell scripts using `mission-control`
 
-:::info Note
-As a simpler alternative to `mission-control`, you may also use [just](https://just.systems/man/en/) (see [example use](https://github.com/srid/haskell-template/pull/111)).
-:::
+>[!info] Alternative
+> As a simpler alternative to `mission-control`, you may also use [just](https://just.systems/man/en/) (see [example use](https://github.com/srid/haskell-template/pull/111)).
 
 The [mission-control](https://github.com/Platonic-Systems/mission-control) flake-parts module enables creating a set of scripts or commands to run in the Nix dev shell. This makes it possible for the project's user to locate all of the commands they need (to get started) in one place, often replacing the likes of `Makefile` or `bin/` scripts.
 

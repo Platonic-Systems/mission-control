@@ -17,6 +17,7 @@
       dev = {
         dir = "./dev";
       };
+      doc.dir = "./doc";
     };
   };
 }
