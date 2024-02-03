@@ -3,12 +3,14 @@
 let
   mkCommand = name: v:
     let
-      drv = pkgs.writeShellApplication { inherit name; text = if builtins.typeOf v.exec == "string" then v.exec else ''${lib.getExe v.exec} "$@"''; meta.mainProgram = if builtins.typeOf v.exec == "string" then v.exec else v.exec.meta.mainProgram};
+      drv = pkgs.writeShellApplication { inherit name; text = if builtins.typeOf v.exec == "string" then v.exec else ''${lib.getExe v.exec} "$@"'';};
     in
     drv.overrideAttrs (oa: {
       meta.description =
         if v.description == null then oa.meta.description or "No description" else v.description;
       meta.category = v.category;
+      meta.mainProgram =
+        if v.mainProgram == null then oa.meta.name or "No name" else v.mainProgram;
     });
   wrapCommands = spec:
     let
