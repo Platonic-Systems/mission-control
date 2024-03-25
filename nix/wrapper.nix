@@ -3,7 +3,7 @@
 let
   mkCommand = name: v:
     let
-      drv = pkgs.writeShellApplication { inherit name; text = if builtins.typeOf v.exec == "string" then v.exec else ''${lib.getExe v.exec} "$@"'';};
+      drv = pkgs.writeShellApplication { inherit name; text = if builtins.typeOf v.exec == "string" then v.exec else ''${lib.getExe v.exec} "$@"''; };
     in
     drv.overrideAttrs (oa: {
       meta.description =
