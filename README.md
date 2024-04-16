@@ -5,7 +5,7 @@ A `flake-parts` module for your Nix devshell scripts
 https://community.flake.parts/mission-control
 
 > [!IMPORTANT]  
-> We recommend that you use [just](https://just.systems/man/en/) over this module. For migration, see [this PR](https://github.com/srid/haskell-template/pull/111).
+> We recommend that you use [just](https://just.systems/man/en/) over this module. For migration, see [this PR](https://github.com/srid/haskell-template/pull/111). Specifically, you may be interested in [just-flake](https://github.com/juspay/just-flake).
 
 ## Usage
 
