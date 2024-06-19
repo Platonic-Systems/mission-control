@@ -51,3 +51,4 @@ These repositories use `mission-control` to provide development shell workflow s
 
 - https://github.com/srid/haskell-template
 - https://github.com/srid/ema-template
+- https://github.com/NiXium-org/NiXium
