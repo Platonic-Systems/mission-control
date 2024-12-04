@@ -15,7 +15,7 @@ in
             options = {
               description = mkOption {
                 type = types.nullOr types.str;
-                description = lib.mdDoc ''
+                description = ''
                   A description of what this script does.
 
                   This will be displayed in the banner and help menu.
@@ -24,14 +24,14 @@ in
               };
               category = mkOption {
                 type = types.str;
-                description = lib.mdDoc ''
+                description = ''
                   The category under which this script will be gropuped.
                 '';
                 default = "Commands";
               };
               exec = mkOption {
                 type = types.oneOf [ types.str types.package ];
-                description = lib.mdDoc ''
+                description = ''
                   The script or package to run
 
                   The $FLAKE_ROOT environment variable will be set to the
@@ -41,7 +41,7 @@ in
               };
               cdToProjectRoot = mkOption {
                 type = types.bool;
-                description = lib.mdDoc ''
+                description = ''
                   Whether to change the working directory to the project root
                   before running the script.
                 '';
@@ -54,21 +54,21 @@ in
             options = {
               wrapperName = mkOption {
                 type = types.str;
-                description = lib.mdDoc ''
+                description = ''
                   The name of the wrapper script
                 '';
                 default = ",";
               };
               scripts = mkOption {
                 type = types.attrsOf scriptSubmodule;
-                description = lib.mdDoc ''
+                description = ''
                   List of scripts to be added to the shell
                 '';
                 default = { };
               };
               wrapper = mkOption {
                 type = types.package;
-                description = lib.mdDoc ''
+                description = ''
                   The generated wrapper script.
                 '';
                 default = import ./wrapper.nix {
@@ -79,7 +79,7 @@ in
               };
               banner = mkOption {
                 type = types.str;
-                description = lib.mdDoc ''
+                description = ''
                   The generated shell banner.
                 '';
                 default = import ./banner.nix { inherit (config) wrapper wrapperName; };
@@ -87,7 +87,7 @@ in
               };
               devShell = mkOption {
                 type = types.package;
-                description = lib.mdDoc ''
+                description = ''
                   A devShell containing the banner and wrapper.
                 '';
                 readOnly = true;
@@ -104,7 +104,7 @@ in
         {
           options.mission-control = lib.mkOption {
             type = mainSubmodule;
-            description = lib.mdDoc ''
+            description = ''
               Specification for the scripts in dev shell
             '';
             default = { };
