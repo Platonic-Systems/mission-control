@@ -9,6 +9,8 @@ let
       meta.description =
         if v.description == null then oa.meta.description or "No description" else v.description;
       meta.category = v.category;
+      meta.mainProgram =
+        oa.meta.mainProgram or v.name;
     });
   wrapCommands = spec:
     let
